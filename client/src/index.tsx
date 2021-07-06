@@ -1,6 +1,8 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import QuestionList from './components/QuestionList';
+import Canvas from './components/Canvas';
 import questionData from './data/parsedsample1';
 
 const App: React.FC = () => {
@@ -10,7 +12,7 @@ const App: React.FC = () => {
 
   React.useEffect(() => {
     setQuestions(questionData);
-  })
+  }, []);
 
   const handleScore = () => {
     setScore(prevScore => prevScore + 1);
@@ -18,7 +20,12 @@ const App: React.FC = () => {
 
   return (
     <div>
-      Hello
+      <section>
+        <QuestionList questions={questions}/>
+      </section>
+      <section>
+        <Canvas />
+      </section>
     </div>
   )
 };
