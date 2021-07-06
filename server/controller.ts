@@ -1,7 +1,7 @@
 const model = require('./model');
 
 module.exports = {
-  sayHello: async function (req, res) {
+  sayHello: async function (req: any, res: any) {
     try {
       let data = await model.sayHello(req.method, req.headers, req.body, req.query, req.params);
       res.status(200).json(data);
