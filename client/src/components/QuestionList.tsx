@@ -14,8 +14,7 @@ const QuestionList: React.FC<Props> = ({questions, handleScore}) => {
         <QuestionListEntry
           question={question}
           key={index}
-          handleScore={handleScore}
-        />
+          handleScore={handleScore} />
       )}
     </div>
   )

@@ -1,18 +1,11 @@
-const { Pool } = require('pg');
 require('dotenv').config();
+const mongoose = require('mongoose');
 
-// Database connection
-const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-  max: 20,
-  idleTimeoutMillis: 0,
-  connectionTimeoutMillis: 0,
-}, console.log('Pool filled'));
+const url = process.env.DB_URL;
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
-module.exports = {
-  pool
-}
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log(`DB connected at ${url}`);
+})

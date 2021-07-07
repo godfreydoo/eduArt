@@ -46,7 +46,7 @@ class Canvas extends React.Component<Props, State> {
     this.paint(context, canvas);
   }
 
-  async paint(context: Context, canvas: Canvas) {
+  paint(context: Context, canvas: Canvas) {
     context.drawImage(this.sourceImage.current, 0, 0, canvas.width, canvas.height);
     const imgData = context.getImageData(0, 0, canvas.width, canvas.height);
     this.setState({imgData});
@@ -67,16 +67,14 @@ class Canvas extends React.Component<Props, State> {
           width="800"
           height="800"
           alt="Image"
-          className="hidden"
-        />
+          className="hidden" />
       </canvas>
       <Draw
         imgData={this.state.imgData}
         height={this.state.height}
         width={this.state.width}
         score={this.props.score}
-        total={this.props.total}
-      />
+        total={this.props.total} />
     </div>
     )
   }

@@ -75,8 +75,7 @@ class Draw extends React.Component<Props, State> {
           ref={this.newImage}
           className="image-to-draw"
           width="800"
-          height="800"
-        />
+          height="800" />
       </>
     )
   }

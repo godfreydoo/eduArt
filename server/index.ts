@@ -1,14 +1,14 @@
 export {};
 const express = require('express');
 const path = require('path');
-const { pool } = require('../db/index');
 const routes = require('./routes');
+const db = require('../db/index.ts');
 const app = express();
 const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
-app.use('/', routes);
+app.use('/api', routes);
 
 
 app.listen(PORT, () => {

@@ -23,7 +23,6 @@ body {
 
 .canvas-column {
   display: flex;
-
   flex-direction: column;
   flex-basis: 100%;
   flex: 2;
@@ -31,6 +30,15 @@ body {
 
 .question {
   margin: 50px;
+}
+
+.question-card {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  margin: 0 auto;
 }
 
 .hidden {

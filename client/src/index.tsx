@@ -1,8 +1,10 @@
-import './App.css';
+import './styles.css';
 import React, { useState, useEffect } from 'react';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import QuestionList from './components/QuestionList';
 import Canvas from './components/Canvas';
+import Create from './components/Create';
 import questionData from './data/parsedsample1';
 
 const App: React.FC = () => {
@@ -10,7 +12,7 @@ const App: React.FC = () => {
   const [score, setScore] = useState<number>(0);
   const [total, setTotal] = useState<number>(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setQuestions(questionData);
     setTotal(questionData.length);
   }, []);
@@ -20,14 +22,41 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="main-row">
-      <section className="question-column">
-        <QuestionList questions={questions} handleScore={handleScore}/>
-      </section>
-      <section className="canvas-column" >
-        <Canvas score={score} total={total}/>
-      </section>
-    </div>
+    <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/create">Create</Link>
+          </li>
+          <li>
+            <Link to="/play">Play</Link>
+          </li>
+        </ul>
+
+      <hr />
+        <Switch>
+          <Route exact path="/">
+            <div className="main-row">
+              <section className="question-column">
+                <QuestionList questions={questions} handleScore={handleScore}/>
+              </section>
+              <section className="canvas-column" >
+                <Canvas score={score} total={total}/>
+              </section>
+            </div>
+          </Route>
+          <Route exact path='/create'>
+            <Create/>
+          </Route>
+          <Route exact path='/play'>
+
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   )
 };
 

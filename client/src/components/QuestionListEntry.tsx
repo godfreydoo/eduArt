@@ -27,8 +27,7 @@ const QuestionListEntry: React.FC<Props> = ({question, handleScore}) => {
           type={question.Type}
           answer={question.Answer}
           selections={[question.A, question.B, question.C, question.D]}
-          handleScore={handleScore}
-        />
+          handleScore={handleScore} />
       </div>
     </div>
   )
