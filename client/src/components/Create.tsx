@@ -25,7 +25,7 @@ const Create: React.FC = () => {
     }
     try {
       let data = await axios(config);
-      console.log(data);
+      // redirect to the play page
     } catch(err) {
       console.error(err);
     }

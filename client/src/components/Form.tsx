@@ -24,7 +24,6 @@ const Form: React.FC<Props> = ({id, setForm}) => {
   });
 
   useEffect(() => {
-    console.log(questionDetails);
     setForm((prevQuestion: Array<object>) => {return {...prevQuestion, [id]: questionDetails}});
   }, [questionDetails])
 

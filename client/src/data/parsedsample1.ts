@@ -1,6 +1,8 @@
 var documentSampleData = {
   _id: 'asdfasfs',
   user: 'random user',
+  title: 'hello',
+  url: 'asdlkfjsadlfjsdaflk',
   questions: [
     {
       "Number": "1",

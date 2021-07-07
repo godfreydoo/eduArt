@@ -34,8 +34,7 @@ const Play: React.FC = () => {
       {quizzes.map((value: Document, index: number) => {
         return (
           <div key={value._id}>
-            <h2>{value.title || 'Random title for this quiz'}</h2>
-            <p>{value.questions.length}</p>
+            <div>{value.title || 'Random title for this quiz'} with {value.questions.length} questions</div>
           </div>
         )
       })}
