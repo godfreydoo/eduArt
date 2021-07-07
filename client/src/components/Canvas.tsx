@@ -49,7 +49,6 @@ class Canvas extends React.Component<Props, State> {
   async paint(context: Context, canvas: Canvas) {
     context.drawImage(this.sourceImage.current, 0, 0, canvas.width, canvas.height);
     const imgData = context.getImageData(0, 0, canvas.width, canvas.height);
-    console.log(imgData);
     this.setState({imgData});
   }
 
