@@ -16,6 +16,7 @@ interface Object {
 const Form: React.FC<Props> = ({id, setForm}) => {
 
   const [questionDetails, setQuestionDetails] = useState<any>({
+    Title: '',
     Number: id,
     Question: '',
     Type: '',
@@ -35,6 +36,12 @@ const Form: React.FC<Props> = ({id, setForm}) => {
     <form key={id} className='question-card'>
       <div>
         Number: {id}
+      </div>
+
+      <div>
+        <label>Title
+        <input type="text" name="Title" value={questionDetails.Title} onChange={updateQuestionDetails}/>
+        </label>
       </div>
 
       <div>

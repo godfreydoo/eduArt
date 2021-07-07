@@ -4,6 +4,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 
 interface Document {
   _id: string,
+  title: string,
   user: string,
   questions: Array<object>
 }
@@ -33,7 +34,7 @@ const Play: React.FC = () => {
       {quizzes.map((value: Document, index: number) => {
         return (
           <div key={value._id}>
-            <h2>Random title for this quiz</h2>
+            <h2>{value.title || 'Random title for this quiz'}</h2>
             <p>{value.questions.length}</p>
           </div>
         )

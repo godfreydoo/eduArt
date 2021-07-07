@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 
 const quizSchema = mongoose.Schema({
   user: {type: String, createIndexes: true},
+  title: {type: String, createIndexes: true},
+  url: {type: String, createIndexes: true},
   questions: mongoose.Schema.Types.Mixed
 });
 
