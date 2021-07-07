@@ -7,26 +7,28 @@ interface Props {
 }
 
 interface Object {
-  question: string,
-  type: string,
-  answer: string,
+  Number: number,
+  Question: string,
+  Type: string,
+  Answer: string,
 }
 
 const Form: React.FC<Props> = ({id, setForm}) => {
 
-  const [questionDetails, setQuestionDetails] = useState<Object>({
-    question: '',
-    type: '',
-    answer: '',
+  const [questionDetails, setQuestionDetails] = useState<any>({
+    Number: id,
+    Question: '',
+    Type: '',
+    Answer: '',
   });
 
   useEffect(() => {
     console.log(questionDetails);
-    setForm((prevQuestions: any) => {return {...prevQuestions, [id]: questionDetails}});
+    setForm((prevQuestion: Array<object>) => {return {...prevQuestion, [id]: questionDetails}});
   }, [questionDetails])
 
   const updateQuestionDetails = (e: any) => {
-    setQuestionDetails(prevDetails => {return {...prevDetails, [e.target.name]: e.target.value}});
+    setQuestionDetails((prevDetails: Array<object>) => {return {...prevDetails, [e.target.name]: e.target.value}});
   }
 
   return (
@@ -37,13 +39,13 @@ const Form: React.FC<Props> = ({id, setForm}) => {
 
       <div>
         <label>Question
-          <textarea rows={5} cols={33} name="question" value={questionDetails.question} onChange={updateQuestionDetails}/>
+          <textarea rows={5} cols={33} name="Question" value={questionDetails.Question} onChange={updateQuestionDetails}/>
         </label>
       </div>
 
       <div>
         <label>Type
-          <select name="type" value={questionDetails.type} onChange={updateQuestionDetails}>
+          <select name="Type" value={questionDetails.Type} onChange={updateQuestionDetails}>
             <option value="number">Number</option>
             <option value="string">Text</option>
 
@@ -53,7 +55,7 @@ const Form: React.FC<Props> = ({id, setForm}) => {
 
       <div>
         <label>Answer
-          <input type="text" name="answer" value={questionDetails.answer} onChange={updateQuestionDetails}/>
+          <input type="text" name="Answer" value={questionDetails.Answer} onChange={updateQuestionDetails}/>
         </label>
       </div>
     </form>

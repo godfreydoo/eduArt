@@ -14,10 +14,11 @@ const Create: React.FC = () => {
 
 
   const createQuiz = async () => {
+    console.log(form);
     const config: AxiosRequestConfig = {
       method: 'post',
       url: '/api/quiz',
-      data: form,
+      data: Object.values(form),
       headers: {
         'content-type': 'application/json'
       }

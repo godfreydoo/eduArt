@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom';
 import QuestionList from './components/QuestionList';
 import Canvas from './components/Canvas';
 import Create from './components/Create';
-import questionData from './data/parsedsample1';
+import Play from './components/Play';
+import documentSampleData from './data/parsedsample1';
 
 const App: React.FC = () => {
   const [questions, setQuestions] = useState<object[]>([]);
@@ -13,8 +14,8 @@ const App: React.FC = () => {
   const [total, setTotal] = useState<number>(0);
 
   useEffect(() => {
-    setQuestions(questionData);
-    setTotal(questionData.length);
+    setQuestions(documentSampleData.questions);
+    setTotal(documentSampleData.questions.length);
   }, []);
 
   const handleScore = () => {
@@ -52,7 +53,7 @@ const App: React.FC = () => {
             <Create/>
           </Route>
           <Route exact path='/play'>
-
+            <Play/>
           </Route>
         </Switch>
       </div>

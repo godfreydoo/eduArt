@@ -21,7 +21,6 @@ module.exports = {
     }
   },
   addQuiz: async function (req: any, res: any) {
-    console.log('controllers',req.body);
     try {
       let data = await model.database.addQuiz(req.method, req.headers, req.body, req.query, req.params);
       res.status(200).json(data);

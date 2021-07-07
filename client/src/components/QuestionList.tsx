@@ -3,7 +3,7 @@ import QuestionListEntry from './QuestionListEntry';
 
 interface Props {
   questions: Array<object>;
-  handleScore: () => void;
+  handleScore?: () => void;
 }
 
 const QuestionList: React.FC<Props> = ({questions, handleScore}) => {
