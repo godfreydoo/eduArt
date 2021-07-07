@@ -7,10 +7,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.left, .right {
-  height: 100vh;
-  width: 100%;
+.main-row {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.question-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.canvas-column {
+  display: flex;
+
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 2;
 }
 
 .question {
@@ -22,5 +38,9 @@ body {
 }
 
 .image-to-draw {
+  width: auto;
+  height: auto;
+  margin: 20px;
+  padding: 50px;
   position: fixed;
 }

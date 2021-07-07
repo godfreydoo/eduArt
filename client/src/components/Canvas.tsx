@@ -19,8 +19,13 @@ interface Canvas {
   height: number;
 }
 
+interface Props {
+  score: number;
+  total: number;
+}
 
-class Canvas extends React.Component<any, State> {
+
+class Canvas extends React.Component<Props, State> {
   sourceImage: React.RefObject<any>;
   extractedDataImage: React.RefObject<any>;
   constructor(props: any) {
@@ -70,6 +75,8 @@ class Canvas extends React.Component<any, State> {
         imgData={this.state.imgData}
         height={this.state.height}
         width={this.state.width}
+        score={this.props.score}
+        total={this.props.total}
       />
     </div>
     )

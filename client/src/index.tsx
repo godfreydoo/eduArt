@@ -12,6 +12,7 @@ const App: React.FC = () => {
 
   React.useEffect(() => {
     setQuestions(questionData);
+    setTotal(questionData.length);
   }, []);
 
   const handleScore = () => {
@@ -19,12 +20,12 @@ const App: React.FC = () => {
   }
 
   return (
-    <div>
-      <section>
-        <QuestionList questions={questions}/>
+    <div className="main-row">
+      <section className="question-column">
+        <QuestionList questions={questions} handleScore={handleScore}/>
       </section>
-      <section>
-        <Canvas />
+      <section className="canvas-column" >
+        <Canvas score={score} total={total}/>
       </section>
     </div>
   )

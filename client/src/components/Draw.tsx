@@ -4,6 +4,8 @@ interface Props {
   imgData: object;
   height: number;
   width: number;
+  score: number;
+  total: number;
 }
 
 interface State {
@@ -41,7 +43,11 @@ class Draw extends React.Component<Props, State> {
     this.prepareContext();
   }
 
-  // draw image based on total score
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.score !== this.props.score) {
+      this.putDataOnCanvas();
+    }
+  }
 
   async prepareContext () {
     try {
@@ -53,10 +59,12 @@ class Draw extends React.Component<Props, State> {
     }
   }
 
-  async putDataOnCanvas (height: number, width: number) {
-    // draw image based on total score
+  putDataOnCanvas () {
+    const dimension = this.props.height * ((this.props.total - this.state.drawProgress) / this.props.total);
+    const height = dimension;
+    const weight = dimension;
 
-    this.state.context.putImageData(this.props.imgData, 0, 0, height, width, this.state.canvas.width, this.state.canvas.height);
+    this.state.context.putImageData(this.props.imgData, 0, 0, height, weight, this.state.canvas.width, this.state.canvas.height);
     this.setState({drawProgress: this.state.drawProgress + 1});
   }
 

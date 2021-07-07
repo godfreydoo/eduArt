@@ -14,9 +14,10 @@ interface Questions {
 
 interface Props {
   question: any;
+  handleScore: () => void;
 }
 
-const QuestionListEntry: React.FC<Props> = ({question}) => {
+const QuestionListEntry: React.FC<Props> = ({question, handleScore}) => {
   return (
     <div className="question">
       <div className="question-number">Question {question.Number}</div>
@@ -26,6 +27,7 @@ const QuestionListEntry: React.FC<Props> = ({question}) => {
           type={question.Type}
           answer={question.Answer}
           selections={[question.A, question.B, question.C, question.D]}
+          handleScore={handleScore}
         />
       </div>
     </div>

@@ -3,9 +3,10 @@ import QuestionListEntry from './QuestionListEntry';
 
 interface Props {
   questions: Array<object>;
+  handleScore: () => void;
 }
 
-const QuestionList: React.FC<Props> = ({questions}) => {
+const QuestionList: React.FC<Props> = ({questions, handleScore}) => {
 
   return (
     <div>
@@ -13,6 +14,7 @@ const QuestionList: React.FC<Props> = ({questions}) => {
         <QuestionListEntry
           question={question}
           key={index}
+          handleScore={handleScore}
         />
       )}
     </div>

@@ -4,9 +4,10 @@ interface Props {
   type: string;
   answer: string;
   selections: Array<string>;
+  handleScore: () => void;
 }
 
-const AnswerForm: React.FC<Props> = ({type, answer, selections}) => {
+const AnswerForm: React.FC<Props> = ({type, answer, selections, handleScore}) => {
 
   const [markCorrect, setMarkCorrect] = useState<boolean>(false);
 
@@ -18,12 +19,12 @@ const AnswerForm: React.FC<Props> = ({type, answer, selections}) => {
       const potentialAnswers = answer.split(", ");
       if (potentialAnswers.includes(userAnswer)) {
         setMarkCorrect(true);
-        // handle score
+        handleScore();
       }
     } else {
       if (userAnswer === answer) {
         setMarkCorrect(true);
-        // handle score
+        handleScore();
       }
     }
   }
