@@ -1,8 +1,10 @@
 var documentSampleData = {
   _id: 'asdfasfs',
   user: 'random user',
-  title: 'hello',
-  url: 'asdlkfjsadlfjsdaflk',
+  title: 'Basic Math',
+  subject: 'Math',
+  photoUrl: 'https://res.cloudinary.com/dwfpadggi/image/upload/v1623753423/vafagxqg0aiwxfgcamuw.jpg',
+  description: 'Basic math exercises to keep your mind sharp!',
   questions: [
     {
       "number": "1",

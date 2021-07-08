@@ -1,11 +1,13 @@
 import React, {  useState, useEffect } from 'react';
-import QuestionList from '../components/QuestionList';
+import Card from './Card';
 import axios, { AxiosRequestConfig } from 'axios';
 
 interface Document {
   _id: string,
   title: string,
   user: string,
+  subject: string,
+  description: string,
   questions: Array<object>
 }
 
@@ -30,15 +32,13 @@ const Play: React.FC = () => {
   }
 
   return (
-    <div>
+    <section className="card-container">
       {quizzes.map((value: Document, index: number) => {
         return (
-          <div key={value._id}>
-            <div>{value.title || 'Random title for this quiz'} with {value.questions.length} questions</div>
-          </div>
+          <Card key={value._id} title={value.title} subject={value.subject} description={value.description}/>
         )
       })}
-    </div>
+    </section>
   )
 }
 

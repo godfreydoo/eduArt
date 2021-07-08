@@ -7,6 +7,7 @@ interface Quiz {
   title: string,
   subject: string,
   photoUrl: string,
+  description: string,
   questions: Array<object>
 }
 
@@ -14,6 +15,7 @@ const quizInitialState = {
   title: '',
   subject: '',
   photoUrl: '',
+  description: '',
   questions: [],
 }
 
@@ -25,6 +27,7 @@ const CreateQuiz: React.FC = () => {
     title: '',
     subject: '',
     photoUrl: '',
+    description: '',
     questions: [],
   });
 
@@ -36,7 +39,7 @@ const CreateQuiz: React.FC = () => {
     setQuizDetails((prevQuizDetails: any) => {return {...prevQuizDetails, questions: Object.values(quizQuestions)}});
   },[quizQuestions])
 
-  const updateQuizDetails = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
+  const updateQuizDetails = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement>) => {
     setQuizDetails((prevQuizDetails: any) => {return {...prevQuizDetails, [e.target.name]: e.target.value}})
   }
 
@@ -57,7 +60,9 @@ const CreateQuiz: React.FC = () => {
     try {
       let { data } = await axios(config);
       // do something after form is submitted successfully
-      console.log('id from created quiz: ', data);
+      if (data) {
+        console.log('id from created quiz: ', data);
+      }
     } catch(err) {
       console.error(err);
     } finally {
@@ -97,6 +102,12 @@ const CreateQuiz: React.FC = () => {
           </div>
 
           <div>
+          <label>Description:
+              <textarea rows={5} cols={33} name="description" placeholder="Description of your quiz" value={quizDetails.description} onChange={updateQuizDetails}/>
+            </label>
+          </div>
+
+          <div>
             <label>Photo:
               <input type="url" name="photoUrl" placeholder="Pick a photo" value={quizDetails.photoUrl} onChange={updateQuizDetails}/>
             </label>
@@ -113,7 +124,9 @@ const CreateQuiz: React.FC = () => {
       </section>
 
       <section className="canvas-column">
-        <Images setQuizDetails={setQuizDetails} />
+        <section className="card-container">
+          <Images setQuizDetails={setQuizDetails} />
+        </section>
       </section>
     </div>
   )

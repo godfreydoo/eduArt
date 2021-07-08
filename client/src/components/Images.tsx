@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Card from './Card';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 const selfHostedPhotos = [
@@ -24,6 +25,7 @@ const Images: React.FC<Props> = ({setQuizDetails}) => {
   const fetchImages = async () => {
     try {
       let { data } = await axios('/api/photos');
+      console.log(data);
       setPhotos(data.response);
     } catch(err) {
       // potentially because limit is hit
@@ -37,23 +39,25 @@ const Images: React.FC<Props> = ({setQuizDetails}) => {
 
   if (photos) {
     return (
-      <div>
+      <>
         {photos.map((value: any, index: number) => {
+          const img = (<img src={value.urls.thumb} alt={value.alt_description} onClick={updateUrlOnClick}/>);
           return (
-            <img key={value.id} src={value.urls.thumb} height="200" width="200" alt={value.alt_description} onClick={updateUrlOnClick}/>
+            <Card key={value.id} img={img} />
           )
         })}
-      </div>
+      </>
     )
   } else {
     return (
-      <div>
-        {selfPhotos.map((value, index) => {
+      <>
+        {selfPhotos.map((value: string, index: number) => {
+          const img = (<img src={value} height="200" width="200" alt="Image" onClick={updateUrlOnClick}/>);
           return (
-            <img key={index} src={value} height="200" width="200" alt="Image" onClick={updateUrlOnClick}/>
+            <Card key={index} img={img} />
           )
         })}
-      </div>
+      </>
     )
   }
 
