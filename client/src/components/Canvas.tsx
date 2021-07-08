@@ -22,6 +22,7 @@ interface Canvas {
 interface Props {
   score: number;
   total: number;
+  img: string;
 }
 
 
@@ -61,9 +62,10 @@ class Canvas extends React.Component<Props, State> {
         height="800"
         className="hidden">
         <img
+          crossOrigin="anonymous"
           ref={this.sourceImage}
           onLoad={this.prepareContext.bind(this)}
-          src={image}
+          src={this.props.img}
           width="800"
           height="800"
           alt="Image"

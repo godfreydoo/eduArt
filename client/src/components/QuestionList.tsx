@@ -7,7 +7,7 @@ interface Props {
 }
 
 const QuestionList: React.FC<Props> = ({questions, handleScore}) => {
-
+  console.log(questions);
   return (
     <div>
       {questions.map((question, index) =>

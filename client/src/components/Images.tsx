@@ -43,7 +43,7 @@ const Images: React.FC<Props> = ({setQuizDetails}) => {
         {photos.map((value: any, index: number) => {
           const img = (<img src={value.urls.thumb} alt={value.alt_description} onClick={updateUrlOnClick}/>);
           return (
-            <Card key={value.id} img={img} />
+            <Card key={value.id} img={img} id={value.id}/>
           )
         })}
       </>
@@ -54,7 +54,7 @@ const Images: React.FC<Props> = ({setQuizDetails}) => {
         {selfPhotos.map((value: string, index: number) => {
           const img = (<img src={value} height="200" width="200" alt="Image" onClick={updateUrlOnClick}/>);
           return (
-            <Card key={index} img={img} />
+            <Card key={index} img={img}/>
           )
         })}
       </>

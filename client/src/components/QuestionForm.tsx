@@ -6,19 +6,19 @@ interface Props {
 }
 
 interface Object {
-  Number: number,
-  Question: string,
-  Type: string,
-  Answer: string,
+  number: number,
+  question: string,
+  type: string,
+  answer: string,
 }
 
 const Form: React.FC<Props> = ({id, setQuizQuestions}) => {
 
   const [questionDetails, setQuestionDetails] = useState<any>({
-    Number: id,
-    Question: '',
-    Type: '',
-    Answer: '',
+    number: id,
+    question: '',
+    type: '',
+    answer: '',
   });
 
   useEffect(() => {
@@ -37,16 +37,16 @@ const Form: React.FC<Props> = ({id, setQuizQuestions}) => {
 
       <div>
         <label>Question:
-          <textarea rows={5} cols={33} name="Question" placeholder="Enter your question" value={questionDetails.Question} onChange={updateQuestionDetails}/>
+          <textarea rows={5} cols={33} name="question" placeholder="Enter your question" value={questionDetails.Question} onChange={updateQuestionDetails}/>
         </label>
       </div>
 
       <div>
         <label>Type:
-          <select name="Type" value={questionDetails.Type} onChange={updateQuestionDetails}>
+          <select name="type" value={questionDetails.Type} onChange={updateQuestionDetails}>
             <option value=""> None selected </option>
             <option value="number"> Number </option>
-            <option value="string"> Text </option>
+            <option value="text"> Text </option>
             <option value="boolean"> True or false </option>
             <option value="mc"> Multiple choice </option>
           </select>
@@ -55,7 +55,7 @@ const Form: React.FC<Props> = ({id, setQuizQuestions}) => {
 
       <div>
         <label>Answer:
-          <input type="text" name="Answer" placeholder="Enter the answer" value={questionDetails.Answer} onChange={updateQuestionDetails}/>
+          <input type="text" name="answer" placeholder="Enter the answer" value={questionDetails.Answer} onChange={updateQuestionDetails}/>
         </label>
       </div>
     </div>

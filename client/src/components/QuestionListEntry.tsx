@@ -18,6 +18,7 @@ interface Props {
 }
 
 const QuestionListEntry: React.FC<Props> = ({question, handleScore}) => {
+  console.log(question);
   return (
     <div className="question">
       <div className="question-number">Question {question.number}</div>
@@ -25,7 +26,7 @@ const QuestionListEntry: React.FC<Props> = ({question, handleScore}) => {
       <div>
         <AnswerForm
           type={question.type}
-          answer={question.qnswer}
+          answer={question.answer}
           selections={question.options}
           handleScore={handleScore} />
       </div>

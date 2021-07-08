@@ -11,16 +11,22 @@ interface Props {
 const AnswerForm: React.FC<Props> = ({type, answer, selections, handleScore}) => {
 
   const [markCorrect, setMarkCorrect] = useState<boolean>(false);
-
   const handleAnswer = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userAnswer = e.target.value;
 
-    if (type === "Text") {
+    if (type === "text") {
       userAnswer.toLowerCase();
-      const potentialAnswers = answer.split(", ");
-      if (potentialAnswers.includes(userAnswer)) {
-        setMarkCorrect(true);
-        handleScore();
+      if (answer.indexOf(',') > 0) {
+        const potentialAnswers = answer.split(", ");
+        if (potentialAnswers.includes(userAnswer)) {
+          setMarkCorrect(true);
+          handleScore();
+        }
+      } else {
+        if (answer === userAnswer) {
+          setMarkCorrect(true);
+          handleScore();
+        }
       }
     } else {
       if (userAnswer === answer) {

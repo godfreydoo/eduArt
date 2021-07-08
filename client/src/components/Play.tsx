@@ -1,5 +1,6 @@
 import React, {  useState, useEffect } from 'react';
 import Card from './Card';
+import Start from './Start';
 import axios, { AxiosRequestConfig } from 'axios';
 
 interface Document {
@@ -8,11 +9,15 @@ interface Document {
   user: string,
   subject: string,
   description: string,
+  photoUrl: string,
   questions: Array<object>
 }
 
+
+
 const Play: React.FC = () => {
   const [quizzes, setQuizzes] = useState<any>([])
+  const [selectedQuiz, setSelectedQuiz] = useState<Document>();
 
   useEffect(() => {
     fetchQuizzes();
@@ -31,13 +36,27 @@ const Play: React.FC = () => {
     }
   }
 
+  const handleClickToPlayQuiz = async (data: Document) => {
+    setSelectedQuiz(data);
+  }
+
+  if (selectedQuiz) {
+    return (
+      <Start listOfQuestions={selectedQuiz.questions} img={selectedQuiz.photoUrl}/>
+    )
+  }
   return (
     <section className="card-container">
-      {quizzes.map((value: Document, index: number) => {
-        return (
-          <Card key={value._id} title={value.title} subject={value.subject} description={value.description}/>
-        )
-      })}
+      {quizzes.map((value: Document, index: number) =>
+        <Card
+          key={value._id}
+          data-document={value}
+          id={value._id}
+          title={value.title}
+          subject={value.subject}
+          description={value.description}
+          handleClickToPlayQuiz={handleClickToPlayQuiz}/>
+      )}
     </section>
   )
 }

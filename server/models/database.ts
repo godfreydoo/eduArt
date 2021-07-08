@@ -3,7 +3,7 @@ const { Quiz } = require('../../db/schema.ts');
 module.exports = {
   getQuiz: async function(method: any, headers: any, body: any, query: any, params: any) {
     try {
-      let response = await Quiz.find({});
+      let response = await Quiz.find({_id: params.id});
       return response;
     } catch(err) {
       console.error('Data not retrieved: ', err);
@@ -11,7 +11,7 @@ module.exports = {
   },
   getAllQuizzes: async function(method: any, headers: any, body: any, query: any, params: any) {
     try {
-      let response = await Quiz.find();
+      let response = await Quiz.find({});
       return response;
     } catch(err) {
       console.error('Data not retrieved: ', err);

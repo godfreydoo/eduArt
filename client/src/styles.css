@@ -45,6 +45,7 @@ body {
 
 .card:hover {
   background-color: rgba(175, 214, 204, 0.692);
+  cursor: pointer;
 }
 
 img {
