@@ -65,7 +65,7 @@ class Canvas extends React.Component<Props, State> {
           crossOrigin="anonymous"
           ref={this.sourceImage}
           onLoad={this.prepareContext.bind(this)}
-          src={this.props.img}
+          src={this.props.img || image}
           width="800"
           height="800"
           alt="Image"
