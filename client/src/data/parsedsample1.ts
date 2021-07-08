@@ -5,74 +5,82 @@ var documentSampleData = {
   url: 'asdlkfjsadlfjsdaflk',
   questions: [
     {
-      "Number": "1",
-      "Question": "What is 1+1?",
-      "Type": "Number",
-      "Answer": "2"
+      "number": "1",
+      "question": "What is 1+1?",
+      "type": "Number",
+      "answer": "2"
     },
     {
-      "Number": "2",
-      "Question": "What is 2+2?",
-      "Type": "Number",
-      "Answer": "4"
+      "number": "2",
+      "question": "What is 2+2?",
+      "type": "Number",
+      "answer": "4"
     },
     {
-      "Number": "3",
-      "Question": "What is 100+100?",
-      "Type": "Multiple Choice",
-      "A": "100",
-      "B": "0",
-      "C": "200",
-      "D": "10,000",
-      "Answer": "200"
+      "number": "3",
+      "question": "What is 100+100?",
+      "type": "Multiple Choice",
+      "options": {
+        "A": "100",
+        "B": "0",
+        "C": "200",
+        "D": "10,000",
+      },
+      "answer": "200"
     },
     {
-      "Number": "4",
-      "Question": "What is a radical expression?",
-      "Type": "Text",
-      "Answer": "square, root, radical symbol"
+      "number": "4",
+      "question": "What is a radical expression?",
+      "type": "Text",
+      "answer": "square, root, radical symbol"
     },
     {
-      "Number": "5",
-      "Question": "What is the value of 3×(5+2)?",
-      "Type": "Multiple Choice",
-      "A": "10",
-      "B": "30",
-      "C": "21",
-      "D": "17",
-      "Answer": "21"
+      "number": "5",
+      "question": "What is the value of 3×(5+2)?",
+      "type": "Multiple Choice",
+      "options": {
+        "A": "10",
+        "B": "30",
+        "C": "21",
+        "D": "17",
+      },
+      "answer": "21"
     },
     {
-      "Number": "6",
-      "Question": "What is 2+2?",
-      "Type": "Number",
-      "Answer": "4"
+      "number": "6",
+      "question": "What is 2+2?",
+      "type": "Number",
+      "answer": "4"
     },
     {
-      "Number": "7",
-      "Question": "What is 100+100?",
-      "Type": "Multiple Choice",
-      "A": "100",
-      "B": "0",
-      "C": "200",
-      "D": "10,000",
-      "Answer": "200"
+      "number": "7",
+      "question": "What is 100+100?",
+      "type": "Multiple Choice",
+      "options": {
+        "A": "100",
+        "B": "0",
+        "C": "200",
+        "D": "10,000"
+      },
+      "answer": "200"
     },
     {
-      "Number": "8",
-      "Question": "What is a radical expression?",
-      "Type": "Text",
-      "Answer": "square, root, radical symbol"
+      "number": "8",
+      "question": "What is a radical expression?",
+      "type": "Text",
+      "answer": "square, root, radical symbol"
     },
     {
-      "Number": "9",
-      "Question": "What is the value of 3×(5+2)?",
-      "Type": "Multiple Choice",
-      "A": "10",
-      "B": "30",
-      "C": "21",
-      "D": "17",
-      "Answer": "21"
+      "number": "9",
+      "question": "What is the value of 3×(5+2)?",
+      "type": "Multiple Choice",
+      "options": {
+        "A": "10",
+        "B": "30",
+        "C": "21",
+        "D": "17",
+      },
+      "answer": "21"
     }
   ]
 };

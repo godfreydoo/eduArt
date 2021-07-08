@@ -1,9 +1,8 @@
-import { number, string } from 'prop-types';
 import React, {useEffect, useState} from 'react';
 
 interface Props {
   id: number;
-  setForm: (prevQuestions: any) => void;
+  setQuizQuestions: (prevQuestions: any) => void;
 }
 
 interface Object {
@@ -13,10 +12,9 @@ interface Object {
   Answer: string,
 }
 
-const Form: React.FC<Props> = ({id, setForm}) => {
+const Form: React.FC<Props> = ({id, setQuizQuestions}) => {
 
   const [questionDetails, setQuestionDetails] = useState<any>({
-    Title: '',
     Number: id,
     Question: '',
     Type: '',
@@ -24,7 +22,7 @@ const Form: React.FC<Props> = ({id, setForm}) => {
   });
 
   useEffect(() => {
-    setForm((prevQuestion: Array<object>) => {return {...prevQuestion, [id]: questionDetails}});
+    setQuizQuestions((prevQuestion: Array<object>) => {return {...prevQuestion, [id]: questionDetails}});
   }, [questionDetails])
 
   const updateQuestionDetails = (e: any) => {
@@ -32,15 +30,9 @@ const Form: React.FC<Props> = ({id, setForm}) => {
   }
 
   return (
-    <form key={id} className='question-card'>
+    <div key={id} className='question-card'>
       <div>
         Number: {id}
-      </div>
-
-      <div>
-        <label>Title
-        <input type="text" name="Title" value={questionDetails.Title} onChange={updateQuestionDetails}/>
-        </label>
       </div>
 
       <div>
@@ -64,7 +56,7 @@ const Form: React.FC<Props> = ({id, setForm}) => {
           <input type="text" name="Answer" value={questionDetails.Answer} onChange={updateQuestionDetails}/>
         </label>
       </div>
-    </form>
+    </div>
   )
 }
 

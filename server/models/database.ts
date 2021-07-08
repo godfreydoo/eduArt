@@ -18,10 +18,11 @@ module.exports = {
     }
   },
   addQuiz: async function(method: any, headers: any, body: any, query: any, params: any) {
-    const newQuiz = new Quiz({
-      user: 'random user',
-      questions: body
-    })
+
+    const user = {
+      user: 'random user'
+    }
+    const newQuiz = new Quiz(Object.assign(body, user))
 
     try {
       let response = await newQuiz.save();

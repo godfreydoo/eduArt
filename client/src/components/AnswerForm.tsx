@@ -37,7 +37,7 @@ const AnswerForm: React.FC<Props> = ({type, answer, selections, handleScore}) =>
     if (type === 'Multiple Choice') {
       return (
         <div>
-          {selections.map((value, index) => {
+          {Object.values(selections).map((value, index) => {
             return (
               <div key={index} onChange={handleAnswer}>
                 <label> {value}
