@@ -25,7 +25,7 @@ const Images: React.FC<Props> = ({setQuizDetails}) => {
   const fetchImages = async () => {
     try {
       let { data } = await axios('/api/photos');
-      console.log(data);
+      console.log(data.response);
       setPhotos(data.response);
     } catch(err) {
       // potentially because limit is hit
@@ -41,7 +41,7 @@ const Images: React.FC<Props> = ({setQuizDetails}) => {
     return (
       <>
         {photos.map((value: any, index: number) => {
-          const img = (<img src={value.urls.thumb} alt={value.alt_description} onClick={updateUrlOnClick}/>);
+          const img = (<img src={value.urls.full} height="300" width="300" alt={value.alt_description} onClick={updateUrlOnClick}/>);
           return (
             <Card key={value.id} img={img} id={value.id}/>
           )
@@ -52,7 +52,7 @@ const Images: React.FC<Props> = ({setQuizDetails}) => {
     return (
       <>
         {selfPhotos.map((value: string, index: number) => {
-          const img = (<img src={value} height="200" width="200" alt="Image" onClick={updateUrlOnClick}/>);
+          const img = (<img src={value} height="300" width="300" alt="Image" onClick={updateUrlOnClick}/>);
           return (
             <Card key={index} img={img}/>
           )

@@ -6,18 +6,18 @@ interface Props {
   description?: string,
   subject?: string,
   id?: string,
-  'data-document'?: any,
+  dataDocument?: any,
   handleClickToPlayQuiz?: any;
 }
 
-const Card: React.FC<Props> = (props) => {
+const Card: React.FC<Props> = ({img, title, subject, description, dataDocument, handleClickToPlayQuiz = () => {}}) => {
   return (
-    <div className="card" onClick={() => props.handleClickToPlayQuiz(props['data-document'])}>
-      {props.img}
+    <div className="card" onClick={() => handleClickToPlayQuiz(dataDocument)}>
+      {img}
       <article className="content" >
-        <h3>{props.title}</h3>
-        <h4>{props.subject}</h4>
-        <p>{props.description}</p>
+        <h3>{title}</h3>
+        <h4>{subject}</h4>
+        <p>{description}</p>
       </article>
     </div>
   )

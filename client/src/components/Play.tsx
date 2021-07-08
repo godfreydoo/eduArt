@@ -50,7 +50,7 @@ const Play: React.FC = () => {
       {quizzes.map((value: Document, index: number) =>
         <Card
           key={value._id}
-          data-document={value}
+          dataDocument={value}
           id={value._id}
           title={value.title}
           subject={value.subject}

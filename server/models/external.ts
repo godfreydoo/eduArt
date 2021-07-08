@@ -13,7 +13,7 @@ module.exports = {
     });
 
     try {
-      const data = await unsplash.photos.getRandom({featured: true, query: 'dog', count: 10});
+      const data = await unsplash.photos.getRandom({featured: true, query: 'mountains', count: 6});
       return data;
     } catch(err) {
       console.error(err);

@@ -15,6 +15,7 @@ const AnswerForm: React.FC<Props> = ({type, answer, selections, handleScore}) =>
     const userAnswer = e.target.value;
 
     if (type === "text") {
+      answer.toLowerCase();
       userAnswer.toLowerCase();
       if (answer.indexOf(',') > 0) {
         const potentialAnswers = answer.split(", ");
