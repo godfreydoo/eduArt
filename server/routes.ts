@@ -14,8 +14,8 @@ router.post('/quiz', (req: any, res: any) => {
   controllers.database.addQuiz(req, res);
 })
 
-router.get('/picture', (req: any, res: any) => {
-  controllers.external.fetchPicture(req, res);
+router.get('/photos', (req: any, res: any) => {
+  controllers.external.fetchPhotos(req, res);
 })
 
 module.exports = router;

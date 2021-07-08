@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import QuestionList from './components/QuestionList';
 import Canvas from './components/Canvas';
-import Create from './components/CreateQuiz';
+import CreateQuiz from './components/CreateQuiz';
 import Play from './components/Play';
 import documentSampleData from './data/parsedsample1';
 
@@ -50,7 +50,7 @@ const App: React.FC = () => {
             </div>
           </Route>
           <Route exact path='/create'>
-            <Create/>
+            <CreateQuiz/>
           </Route>
           <Route exact path='/play'>
             <Play/>
