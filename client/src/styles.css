@@ -79,5 +79,5 @@ article {
   height: auto;
   margin: 20px;
   padding: 50px;
-  position: fixed;
+  position: relative;
 }
