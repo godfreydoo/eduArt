@@ -7,11 +7,12 @@ interface Props {
   handleScore: () => void;
 }
 
+
 const AnswerForm: React.FC<Props> = ({type, answer, selections, handleScore}) => {
 
   const [markCorrect, setMarkCorrect] = useState<boolean>(false);
 
-  const handleAnswer = (e: any) => {
+  const handleAnswer = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userAnswer = e.target.value;
 
     if (type === "Text") {
@@ -39,9 +40,9 @@ const AnswerForm: React.FC<Props> = ({type, answer, selections, handleScore}) =>
         <div>
           {Object.values(selections).map((value, index) => {
             return (
-              <div key={index} onChange={handleAnswer}>
+              <div key={index}>
                 <label> {value}
-                  <input type="radio" name="answer" value={value}/>
+                  <input type="radio" name="answer" value={value} onChange={handleAnswer}/>
                 </label>
               </div>
             )

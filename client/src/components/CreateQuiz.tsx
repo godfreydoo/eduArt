@@ -10,7 +10,7 @@ interface Quiz {
   questions: Array<object>
 }
 
-const quizInitialState:Quiz = {
+const quizInitialState = {
   title: '',
   subject: '',
   photoUrl: '',
@@ -18,10 +18,10 @@ const quizInitialState:Quiz = {
 }
 
 const CreateQuiz: React.FC = () => {
-  const [count, setCount] = useState(1);
-  const [questionList, setQuestionList] = useState([]);
-  const [quizQuestions, setQuizQuestions] = useState({});
-  const [quizDetails, setQuizDetails] = useState({
+  const [count, setCount] = useState<number>(1);
+  const [questionList, setQuestionList] = useState<Array<object>>([]);
+  const [quizQuestions, setQuizQuestions] = useState<object>({});
+  const [quizDetails, setQuizDetails] = useState<Quiz>({
     title: '',
     subject: '',
     photoUrl: '',
@@ -36,11 +36,11 @@ const CreateQuiz: React.FC = () => {
     setQuizDetails((prevQuizDetails: any) => {return {...prevQuizDetails, questions: Object.values(quizQuestions)}});
   },[quizQuestions])
 
-  const updateQuizDetails = (e: any) => {
+  const updateQuizDetails = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
     setQuizDetails((prevQuizDetails: any) => {return {...prevQuizDetails, [e.target.name]: e.target.value}})
   }
 
-  const validateQuiz = (e: any) => {
+  const validateQuiz = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createQuiz();
   }

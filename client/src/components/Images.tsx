@@ -14,12 +14,12 @@ interface Props {
 
 const Images: React.FC<Props> = ({setQuizDetails}) => {
 
-  const [photos, setPhotos] = useState<Array<any>>([]);
+  const [photos, setPhotos] = useState<any[]>([]);
   const [selfPhotos, setSelfPhotos] = useState<Array<string>>(selfHostedPhotos);
 
-  // useEffect(() => {
-  //   fetchImages(); figure out a way to not call the unsplash API if rate limit is hit
-  // }, []);
+  useEffect(() => {
+    fetchImages(); // figure out a way to not call the unsplash API if rate limit is hit
+  }, []);
 
   const fetchImages = async () => {
     try {
@@ -35,10 +35,10 @@ const Images: React.FC<Props> = ({setQuizDetails}) => {
     setQuizDetails((prevQuizDetails: any) => {return {...prevQuizDetails, photoUrl: e.target.src}});
   }
 
-  if (!photos) {
+  if (photos) {
     return (
       <div>
-        {photos.map((value, index) => {
+        {photos.map((value: any, index: number) => {
           return (
             <img key={value.id} src={value.urls.thumb} height="200" width="200" alt={value.alt_description} onClick={updateUrlOnClick}/>
           )

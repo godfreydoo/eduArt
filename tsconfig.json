@@ -12,6 +12,7 @@
     "outDir": "./client/dist/",
     "moduleResolution": "node",
     "noImplicitAny": true,
+    "strictNullChecks": true,
     "esModuleInterop": true,
     "jsx": "react",
     "allowJs": true,

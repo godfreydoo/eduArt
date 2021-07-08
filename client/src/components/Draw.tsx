@@ -10,19 +10,15 @@ interface Props {
 
 interface State {
   drawProgress: number;
-  context: Context;
-  canvas: Canvas;
+  context: {
+    putImageData?: (arg1: object, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number) => void;
+  };
+  canvas: {
+    height?: number,
+    width?: number
+  };
   height: number;
   width: number;
-}
-
-interface Canvas {
-  height?: number;
-  width?: number;
-}
-
-interface Context {
-  putImageData?: (arg1: object, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number) => void;
 }
 
 class Draw extends React.Component<Props, State> {
@@ -63,9 +59,10 @@ class Draw extends React.Component<Props, State> {
     const dimension = this.props.height * ((this.props.total - this.state.drawProgress) / this.props.total);
     const height = dimension;
     const weight = dimension;
-
-    this.state.context.putImageData(this.props.imgData, 0, 0, height, weight, this.state.canvas.width, this.state.canvas.height);
-    this.setState({drawProgress: this.state.drawProgress + 1});
+    if (this.state.context.putImageData && this.state.canvas.width && this.state.canvas.height) {
+      this.state.context.putImageData(this.props.imgData, 0, 0, height, weight, this.state.canvas.width, this.state.canvas.height);
+      this.setState({drawProgress: this.state.drawProgress + 1});
+    }
   }
 
   render () {
