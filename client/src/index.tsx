@@ -1,6 +1,6 @@
 import './styles.css';
 import React, { useState, useEffect } from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, HashRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import QuestionList from './components/QuestionList';
 import Canvas from './components/Canvas';
@@ -49,12 +49,8 @@ const App: React.FC = () => {
               </section>
             </div>
           </Route>
-          <Route exact path='/create'>
-            <CreateQuiz/>
-          </Route>
-          <Route exact path='/play'>
-            <Play/>
-          </Route>
+          <Route path='/create' component={CreateQuiz}/>
+          <Route path='/play' component={Play}/>
         </Switch>
       </div>
     </Router>
