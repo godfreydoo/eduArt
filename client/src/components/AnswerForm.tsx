@@ -52,9 +52,8 @@ const AnswerForm: React.FC<Props> = ({type, answer, options, handleScore}) => {
           {Object.values(options).map((value, index) => {
             return (
               <div key={index}>
-                <label> {value}
-                  <input type="radio" name="answer" value={value} onChange={handleAnswer}/>
-                </label>
+                <input type="radio" name="answer" value={value} onChange={handleAnswer}/>
+                <label> {value} </label>
               </div>
             )
           })}

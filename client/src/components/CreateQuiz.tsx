@@ -114,7 +114,7 @@ const CreateQuiz: React.FC = () => {
 
           {questionList}
           <section className="quiz-button">
-            <input type="button" value="Add a question" onClick={() => setCount(prevCount => prevCount + 1)}/>
+            <button type="button" value="Add a question" onClick={() => setCount(prevCount => prevCount + 1)}>Add a question</button>
             <button type="submit">Create quiz</button>
           </section>
         </form>

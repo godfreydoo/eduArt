@@ -1,6 +1,24 @@
+.question-column {
+  display: flex;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  flex-direction: column;
+  flex-flow: column nowrap;
+  flex-basis: 100%;
+  flex: 1;
+  height: 100vh;
+  width: 100vw;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: none;
+}
+
 .question-header {
   padding: 8px;
-  font-size: 16px;
+  font-size: 12px;
   color: #292A3A;
   text-align: left;
 }
@@ -8,6 +26,7 @@
 .question {
   margin: 50px;
 }
+
 
 .question-full-view {
   display: inline-block;
@@ -18,18 +37,23 @@
 
 .question-query {
   display: inline;
+  font-weight: bold;
 }
 
 .question-container {
   display: inline-block;
+  overflow: wrap;
   background-color: rgba(255, 255, 255, 0.911);
   box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
   margin: 10px;
   border-radius: 4px;
-  overflow: auto;
   width: 100%;
   box-sizing: border-box;
   text-align: left;
+}
+
+.question-container:hover {
+  background: #fffdd3;
 }
 
 .question-container > div {

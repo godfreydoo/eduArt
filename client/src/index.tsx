@@ -12,18 +12,25 @@ const App: React.FC = () => {
   return (
     <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/create">Create</Link>
-          </li>
-          <li>
-            <Link to="/play">Play</Link>
-          </li>
-        </ul>
+        <nav className="header">
+          <div className="header-left">
+            <div>
+              <Link to="/">Home</Link>
+            </div>
+            <div>
+              <Link to="/create">Create</Link>
+            </div>
+            <div>
+              <Link to="/play">Play</Link>
+            </div>
+          </div>
+          <div className="header-right">
+            <div>
+              <Link to="/login">Sign In</Link>
+            </div>
+          </div>
 
+        </nav>
       <hr />
         <Switch>
           <Route exact path="/" component={Start}/>
