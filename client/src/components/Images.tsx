@@ -25,7 +25,7 @@ const Images: React.FC<Props> = ({setQuizDetails}) => {
   const fetchImages = async () => {
     try {
       let { data } = await axios('/api/photos');
-      console.log(data.response);
+      // console.log(data.response);
       setPhotos(data.response);
     } catch(err) {
       // potentially because limit is hit
