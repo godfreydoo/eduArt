@@ -3,12 +3,17 @@ import React, {useState} from 'react';
 interface Props {
   type: string;
   answer: string;
-  selections: Array<string>;
+  options?: {
+    A: string;
+    B: string;
+    C: string;
+    D: string;
+  };
   handleScore: () => void;
 }
 
 
-const AnswerForm: React.FC<Props> = ({type, answer, selections, handleScore}) => {
+const AnswerForm: React.FC<Props> = ({type, answer, options, handleScore}) => {
 
   const [markCorrect, setMarkCorrect] = useState<boolean>(false);
   const handleAnswer = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,11 +25,6 @@ const AnswerForm: React.FC<Props> = ({type, answer, selections, handleScore}) =>
       if (answer.indexOf(',') > 0) {
         const potentialAnswers = answer.split(", ");
         if (potentialAnswers.includes(userAnswer)) {
-          setMarkCorrect(true);
-          handleScore();
-        }
-      } else {
-        if (answer === userAnswer) {
           setMarkCorrect(true);
           handleScore();
         }
@@ -42,10 +42,10 @@ const AnswerForm: React.FC<Props> = ({type, answer, selections, handleScore}) =>
       <div>{answer}</div>
     )
   } else {
-    if (type === 'Multiple Choice') {
+    if (type === 'mc' && options) {
       return (
         <div>
-          {Object.values(selections).map((value, index) => {
+          {Object.values(options).map((value, index) => {
             return (
               <div key={index}>
                 <label> {value}
@@ -54,6 +54,17 @@ const AnswerForm: React.FC<Props> = ({type, answer, selections, handleScore}) =>
               </div>
             )
           })}
+        </div>
+      )
+    } else if (type === 'boolean') {
+      return (
+        <div>
+          <label>True
+            <input type="radio" name="boolean" value="true" onChange={handleAnswer}/>
+          </label>
+          <label>False
+            <input type="radio" name="boolean" value="false" onChange={handleAnswer}/>
+          </label>
         </div>
       )
     } else {

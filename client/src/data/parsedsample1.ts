@@ -68,9 +68,9 @@ var documentSampleData = {
     },
     {
       "number": "8",
-      "question": "What is a radical expression?",
-      "type": "text",
-      "answer": "square, root, radical symbol"
+      "question": "The statement '2√n is a radical expression' is 3√n",
+      "type": "boolean",
+      "answer": "true"
     },
     {
       "number": "9",

@@ -21,15 +21,11 @@ const Play: React.FC = () => {
 
   useEffect(() => {
     fetchQuizzes();
-  }, [])
+  }, []);
 
   const fetchQuizzes = async () => {
-    const config: AxiosRequestConfig = {
-      method: 'get',
-      url: '/api/quiz',
-    }
     try {
-      let {data} = await axios(config);
+      let {data} = await axios('/api/quiz');
       setQuizzes(data);
     } catch(err) {
       console.error(err);
@@ -38,6 +34,19 @@ const Play: React.FC = () => {
 
   const handleClickToPlayQuiz = async (data: Document) => {
     setSelectedQuiz(data);
+  }
+
+  const deleteQuiz = async (id: string) => {
+    const config: AxiosRequestConfig = {
+      method: 'delete',
+      url: `/api/quiz/${id}`
+    }
+    try {
+      let {data} = await axios(config);
+      fetchQuizzes();
+    } catch(err) {
+      console.error(err);
+    }
   }
 
   if (selectedQuiz) {
@@ -55,7 +64,8 @@ const Play: React.FC = () => {
           title={value.title}
           subject={value.subject}
           description={value.description}
-          handleClickToPlayQuiz={handleClickToPlayQuiz}/>
+          handleClickToPlayQuiz={handleClickToPlayQuiz}
+          deleteQuiz={deleteQuiz}/>
       )}
     </section>
   )

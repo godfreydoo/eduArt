@@ -1,4 +1,4 @@
-import React, { ReactComponentElement } from 'react';
+import React from 'react';
 
 interface Props {
   title?: string,
@@ -8,17 +8,24 @@ interface Props {
   id?: string,
   dataDocument?: any,
   handleClickToPlayQuiz?: any;
+  deleteQuiz?: any
 }
 
-const Card: React.FC<Props> = ({img, title, subject, description, dataDocument, handleClickToPlayQuiz = () => {}}) => {
+const Card: React.FC<Props> = ({img, title, subject, description, dataDocument, deleteQuiz = () => {}, handleClickToPlayQuiz = () => {}}) => {
   return (
-    <div className="card" onClick={() => handleClickToPlayQuiz(dataDocument)}>
+    <div className="card">
       {img}
       <article className="content" >
         <h3>{title}</h3>
         <h4>{subject}</h4>
         <p>{description}</p>
       </article>
+      {img === undefined
+      ?  <section>
+           <button type="button" onClick={() => handleClickToPlayQuiz(dataDocument)}>Play</button>
+           <button type="button" onClick={() => deleteQuiz(dataDocument._id)}>Delete</button>
+         </section>
+      :null}
     </div>
   )
 }

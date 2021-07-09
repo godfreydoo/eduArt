@@ -30,5 +30,13 @@ module.exports = {
     } catch(err) {
       console.error('Data not updated: ', err);
     }
+  },
+  deleteQuiz: async function(method: any, headers: any, body: any, query: any, params: any) {
+    try {
+      let response = await Quiz.deleteOne({_id: params.id});
+      return response;
+    } catch(err) {
+      console.error('Data not updated: ', err);
+    }
   }
 }

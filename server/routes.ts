@@ -6,6 +6,10 @@ router.get('/quiz/:id', (req: any, res: any) => {
   controllers.database.getQuiz(req, res);
 })
 
+router.delete('/quiz/:id', (req: any, res: any) => {
+  controllers.database.deleteQuiz(req, res);
+})
+
 router.get('/quiz', (req: any, res: any) => {
   controllers.database.getAllQuizzes(req, res);
 })

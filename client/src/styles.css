@@ -26,6 +26,7 @@ body {
   flex-direction: column;
   flex-basis: 100%;
   flex: 2;
+  align-items: center;
 }
 
 .card-container {
@@ -45,6 +46,9 @@ body {
 
 .card:hover {
   background-color: rgba(175, 214, 204, 0.692);
+}
+
+button:hover {
   cursor: pointer;
 }
 
