@@ -61,10 +61,6 @@ article {
   padding: 1em;
 }
 
-.question {
-  margin: 50px;
-}
-
 /* .question-card {
   display: flex;
   justify-content: start;
@@ -84,4 +80,14 @@ article {
   margin: 20px;
   padding: 50px;
   position: relative;
+}
+
+input, textarea, select, button{
+  padding: 5px;
+}
+
+.quiz-button {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
 }

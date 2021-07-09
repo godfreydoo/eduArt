@@ -22,7 +22,7 @@ const Card: React.FC<Props> = ({img, title, subject, description, dataDocument, 
         <p>{description}</p>
       </article>
       {img === undefined
-      ? <section>
+      ? <section className="quiz-button">
           <button type="button" onClick={() => handleClickToPlayQuiz(dataDocument)}>Play</button>
           <button type="button" onClick={() => deleteQuiz(dataDocument._id)}>Delete</button>
         </section>

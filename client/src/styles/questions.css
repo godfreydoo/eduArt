@@ -1,0 +1,38 @@
+.question-header {
+  padding: 8px;
+  font-size: 16px;
+  color: #292A3A;
+  text-align: left;
+}
+
+.question {
+  margin: 50px;
+}
+
+.question-full-view {
+  display: inline-block;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.question-query {
+  display: inline;
+}
+
+.question-container {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.911);
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+  margin: 10px;
+  border-radius: 4px;
+  overflow: auto;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.question-container > div {
+  margin: 10px;
+  padding: 5px;
+}

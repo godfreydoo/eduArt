@@ -1,4 +1,6 @@
-import './styles.css';
+import './styles/general.css';
+import './styles/questions.css';
+import './styles/quiz.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, HashRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';

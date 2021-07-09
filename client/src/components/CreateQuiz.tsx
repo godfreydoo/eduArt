@@ -82,44 +82,41 @@ const CreateQuiz: React.FC = () => {
   return (
     <div className="main-row">
       <section className="question-column">
-        <form onSubmit={validateQuiz}>
-          <div>
-            <label>Title:
+        <form onSubmit={validateQuiz} className="quiz-form">
+          <section className="quiz-title">
+            <label>
               <input type="text" name="title" placeholder="Title of your quiz" value={quizDetails.title} onChange={updateQuizDetails}/>
             </label>
-          </div>
+          </section>
 
-          <div>
-            <label>Subject:
+          <section className="quiz-subject">
+            <label>
               <select name="subject" value={quizDetails.subject} onChange={updateQuizDetails}>
-                <option value=""> None selected </option>
+                <option value=""> Select a subject! </option>
                 <option value="Math"> Math </option>
                 <option value="Science"> Science </option>
                 <option value="Social Studies"> Social Studies </option>
                 <option value="English"> English </option>
+                <option value="English"> Other </option>
               </select>
             </label>
-          </div>
+          </section>
 
-          <div>
-          <label>Description:
+          <section className="quiz-description">
+          <label>
               <textarea rows={5} cols={33} name="description" placeholder="Description of your quiz" value={quizDetails.description} onChange={updateQuizDetails}/>
             </label>
-          </div>
+          </section>
 
-          <div>
-            <label>Photo:
-              <input type="url" name="photoUrl" placeholder="Pick a photo" value={quizDetails.photoUrl} onChange={updateQuizDetails}/>
-            </label>
-          </div>
+          <section className="quiz-photo">
+            Photo: {quizDetails.photoUrl ? `${quizDetails.photoUrl.substring(0, 50)}...` : 'Select a photo to your right!'}
+          </section>
 
           {questionList}
-          <div>
+          <section className="quiz-button">
             <input type="button" value="Add a question" onClick={() => setCount(prevCount => prevCount + 1)}/>
-          </div>
-          <div>
             <button type="submit">Create quiz</button>
-          </div>
+          </section>
         </form>
       </section>
 

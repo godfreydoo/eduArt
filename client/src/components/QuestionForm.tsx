@@ -30,21 +30,21 @@ const Form: React.FC<Props> = ({id, setQuizQuestions}) => {
   }
 
   return (
-    <div key={id} className='question-card'>
+    <div key={id} className='question-container'>
       <div>
         Number: {id}
       </div>
 
-      <div>
-        <label>Question:
+      <div className="question-query">
+        <label>
           <textarea rows={5} cols={33} name="question" placeholder="Enter your question" value={questionDetails.Question} onChange={updateQuestionDetails}/>
         </label>
       </div>
 
       <div>
-        <label>Type:
+        <label>
           <select name="type" value={questionDetails.Type} onChange={updateQuestionDetails}>
-            <option value=""> None selected </option>
+            <option value=""> Select a type of input (i.e. text, number) </option>
             <option value="number"> Number </option>
             <option value="text"> Text </option>
             <option value="boolean"> True or false </option>
@@ -54,7 +54,7 @@ const Form: React.FC<Props> = ({id, setQuizQuestions}) => {
       </div>
 
       <div>
-        <label>Answer:
+        <label>
           <input type="text" name="answer" placeholder="Enter the answer" value={questionDetails.Answer} onChange={updateQuestionDetails}/>
         </label>
       </div>

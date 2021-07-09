@@ -29,6 +29,10 @@ const AnswerForm: React.FC<Props> = ({type, answer, options, handleScore}) => {
           handleScore();
         }
       }
+      if (userAnswer === answer) {
+        setMarkCorrect(true);
+        handleScore();
+      }
     } else {
       if (userAnswer === answer) {
         setMarkCorrect(true);

@@ -1,0 +1,12 @@
+
+.quiz-form{
+  display: inline-block;
+  margin: 10px;
+  text-align: left;
+}
+
+.quiz-title, .quiz-subject, .quiz-description, .quiz-photo {
+  display: inline-block;
+  margin: 10px;
+  text-align: left;
+}
